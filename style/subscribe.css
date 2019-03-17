@@ -1,0 +1,109 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    
+}
+
+/* My Desain Css */
+.header {
+    background-color: #393e46;
+    width: 100%;
+}
+
+.header h3 {
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-transform: uppercase;
+    padding: 0.5em;
+}
+
+/* content */
+.content {
+    background-color: #fff;
+    height: 89vh;
+}
+
+
+/* Footer */
+.footer {
+    margin: 0;
+    width: 100%;
+    background-color: #393e46;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+/* Subscribe */
+.subscribe {
+    padding: 20px;
+}
+
+.subscribe h2 {
+    display: flex;
+    margin: 0;
+    padding: o;
+    color: white;
+    width: 100%;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+/* text form */
+.text-form {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Form */
+form {
+    padding: 20px;
+    width: 75%;
+    margin: 0;
+}
+
+
+/* label */
+label {
+    color: #fff;
+}
+
+
+/* Disable Arrow Number */
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Button */
+.btn {
+    text-transform: uppercase;
+    float: right;
+    font-weight: 500;
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 900px) {
+    form {
+        width: 100%;
+    }
+}
+
+/* Form and Input */
+@media screen and (max-width: 900px) {
+    form, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}

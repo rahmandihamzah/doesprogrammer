@@ -157,20 +157,21 @@ img {
     text-align: center;
 }
 
+@media (max-width: 1440px) and (min-width: 1280px) {
+    .logo-animation {
+        height: 88vh;
+    }
+}
+
 .path {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     animation: dash 5s linear alternate infinite;
 }
 
-@media (max-width: 1440px) and (min-width: 1280px) {
-    .logo-animation {
-        height: 88vh;
-    }
 
-    .svg {
-        padding-bottom: 40%;
-    }
+.svg {
+    padding-bottom: 40%;
 }
 
 @keyframes dash {

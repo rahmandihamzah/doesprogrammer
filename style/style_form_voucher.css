@@ -70,4 +70,56 @@ body {
     color: #393e46;
 }
 
-.content .container
+.form-voucher {
+    border: 1px solid black;
+    border-radius: 10px;
+    position: relative;
+}
+
+.v-title {
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.slmt {
+    text-align: center;
+    margin: 0;
+}
+
+.receiver {
+    margin: 0;
+    text-align: center;
+}
+
+.cshbck {
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    color: rgb(170, 170, 170);
+    font-size: 2rem;
+}
+
+.amount {
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bold;
+    padding-bottom: 5%;
+}
+
+.voucher-code {
+    display: flex;
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    bottom: 0;
+}
+
+.voucher-code-title {
+    margin-right: 10px;
+}
+
+.voucher-code-amount {
+    border: 1px solid black;
+}

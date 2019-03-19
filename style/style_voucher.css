@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #eeeeee;
+}
+
+.content {
+    background-color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.form-voucher {
+    border: 1px solid black;
+    border-radius: 10px;
+    position: relative;
+}
+
+.v-title {
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.slmt {
+    text-align: center;
+    margin: 0;
+}
+
+.receiver {
+    text-align: center;
+    color: rgb(133, 1, 1);
+}
+
+.cshbck {
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    color: rgb(170, 170, 170);
+    font-size: 2rem;
+}
+
+.amount {
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bold;
+    padding-bottom: 5%;
+}
+
+.voucher-code {
+    display: flex;
+    justify-content: center;
+}
+
+.voucher-code-title {
+    margin-right: 10px;
+}
+
+.voucher-code-item {
+    background-color: rgb(170, 170, 170);
+    color: #ffff;
+}

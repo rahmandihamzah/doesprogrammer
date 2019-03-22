@@ -67,3 +67,9 @@ body {
     background-color: rgb(170, 170, 170);
     color: #ffff;
 }
+
+.expired-date {
+    margin-left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+}

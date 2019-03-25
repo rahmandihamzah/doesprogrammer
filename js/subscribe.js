@@ -4,8 +4,9 @@ var inputNumber = document.getElementById("phone");
 
 var invalidChars  = [
     "-",
-    "+",
-    "e"
+    "e",
+    ".",
+    "="
 ];
 
 inputNumber.addEventListener("keydown", function (e) {
@@ -14,7 +15,7 @@ inputNumber.addEventListener("keydown", function (e) {
     }
 })
 
-// GET INPUT
+// INPUT DATA SUBSCRIBE
 
 function onSubscribe(event) {
     event.preventDefault();
@@ -30,25 +31,37 @@ function onSubscribe(event) {
 
     var subscribeData = {
         name: inputNama,
-        email: inputEmail,
-        phone: inputPhone
+        phone: inputPhone,
+        email: inputEmail
     }
 
     var data = JSON.stringify(subscribeData)
+    // var data = subscribeData
+    console.log(data)
 
     fetch(url, {
-        method: "POST",
-        credentials: 'same-origin',
+        method: 'POST',
+        // credentials: 'same-origin',
         body: data,
         headers: {
-            'Accept': 'application/json, text/plain, */*',
+            // 'Accept': 'application/json, text/plain, */*',
             "Content-Type": "application/json",
-            "Access-Control-Request-Headers": "*",
-            "Access-Control-Request-Method": "*"
+            // "Access-Control-Request-Headers": "*",
+            // "Access-Control-Request-Method": "*"
         },
-        mode: "no-cors"
+        // mode: "no-cors"
     }).then(res => {
+
+        // get status
         console.log(res)
+
+        // get body
+        let response = res.json()
+        response.then((r) => {
+            console.log(r)
+        })
+    }).catch(error => {
+        console.log(error)
     })
 
 

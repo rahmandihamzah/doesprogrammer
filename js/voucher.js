@@ -1,3 +1,4 @@
+// GET REQUEST (DATA VOUCHER)
 fetch("http://192.168.2.12:3000/v1/vouchers").then(res => {
     var response = res.json()
     response.then(vouchers => {

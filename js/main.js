@@ -1,5 +1,7 @@
+// GET REQUEST (DATA USER)
 // Ini fetch yang langsung di eksekudi setelah main.js ke load.
 fetch("http://192.168.2.12:3000/v1/users").then(res => {
+    console.log(res)
     var response = res.json()
     response.then(data => {
         console.log(data)
@@ -9,40 +11,6 @@ fetch("http://192.168.2.12:3000/v1/users").then(res => {
 }).catch(error => {
     console.log(error)
 })
-
-// Ini tidak akan dieksekusi sebelum button delete di klik
-function deleteUser(id) {
-
-    // Cek dulu idnya ada ga
-    console.log(id);
-
-    // Eksekusi fungsi fetch (kirim request ke backend, methodnya DELETE)
-    // Parameter pertama URL API + id, parameter kedua options.
-    fetch("http://192.168.2.12:3000/v1/users/" + id, {
-            method: 'DELETE'
-        })
-
-        // Handle fetch sukses
-        .then(res => {
-            console.log(res)
-            // var response = res.body.json()
-            // console.log(response)
-            // response.then(data => {
-            //     console.log(data)
-            // })
-        })
-
-        // Handle fetch gagal.
-        .catch(error => {
-            console.log(error)
-        })
-}
-
-
-// fetch("http://192.168.2.12:3000/v1/users/_id", {
-//     method: "DELETE"
-// }).then((response) => response.json()).then((data) => console.log(data));
-
 
 function render(users) {
 
@@ -58,9 +26,9 @@ function render(users) {
                 "</td><td>" + users[i].balance +
                 "</td><td>" + "<i class='fas fa-check'></i>" +
                 "</td><td>" + "<a href='./form_voucher.html'><i class='icon fas fa-plus'></i></a>" +
+                // "</td><td>" + "<botton class='btn-put' id='put' onclick='addVoucher(" + '"' + users[i]._id + '"' + ")'>" + "<i class='icon fas fa-plus'></i>" +
                 "</td><td>" + "<button class='btn-delete' id='delete' onclick='deleteUser(\"" + users[i]._id + "\")'>" + "<i class='icon fas fa-trash'></i >" + "</button>" +
                 "</td></tr>";
-
 
         } else if (users[i].verify === false) {
             user.innerHTML +=
@@ -78,20 +46,54 @@ function render(users) {
     }
 }
 
+// DELETE REQUEST USER
+// Ini tidak akan dieksekusi sebelum button delete di klik
+function deleteUser(id) {
 
+    // Cek dulu idnya ada ga
+    console.log(id);
 
-// var btndelete = document.getElementById('btn-delete')
+    // Eksekusi fungsi fetch (kirim request ke backend, methodnya DELETE)
+    // Parameter pertama URL API + id, parameter kedua options.
+    fetch("http://192.168.2.12:3000/v1/users/" + id, {
+            method: 'DELETE'
+        })
 
-// btndelete.addEventListener("click", function () {
-//     let userID = _id.value;
+        // Handle fetch sukses
+        .then(res => {
+            console.log(res)
+        })
 
-//     let option = {
-//         method: "DELETE"
-//     }
+        // Handle fetch gagal.
+        .catch(error => {
+            console.log(error)
+        })
+}
 
-//     fetch('http://192.168.2.12:3000/v1/${userID}', option, function (err, data) {
-//         if (err) {
-//             resultDIV.innerHTML = err;
-//         }
-//     })
-// })
+fetch("http://192.168.2.12:3000/v1/vouchers").then(res => {
+    console.log(res)
+    var response = res.json()
+    response.then(data => {
+        console.log(data)
+        tampil(data.vouchers)
+    })
+}).catch(error => {
+    console.log(error)
+})
+
+function tampil(vouchers) {
+    for (var j = 0; j < vouchers.length; j++) {
+        var tampilVoucher = document.getElementById('voucherArea');
+
+        tampilVoucher.innerHTML +=
+            "<tr><th>" + (j + 1) +
+            "</th><td>" + vouchers[j].code +
+            "</td><td>" + vouchers[j].name +
+            "</td><td>" + vouchers[j].amount +
+            "</td><td>" + vouchers[j].receiver +
+            "</td><td>" + vouchers[j].expired +
+            "</td></tr>";
+
+        console.log(vouchers[j])
+    }
+}

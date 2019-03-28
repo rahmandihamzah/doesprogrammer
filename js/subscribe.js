@@ -2,7 +2,7 @@
 
 var inputNumber = document.getElementById("phone");
 
-var invalidChars  = [
+var invalidChars = [
     "-",
     "e",
     ".",
@@ -10,7 +10,7 @@ var invalidChars  = [
 ];
 
 inputNumber.addEventListener("keydown", function (e) {
-    if (invalidChars.includes(e.key)){
+    if (invalidChars.includes(e.key)) {
         e.preventDefault();
     }
 })
@@ -64,6 +64,49 @@ function onSubscribe(event) {
         console.log(error)
     })
 
+    console.log(JSON.stringify(subscribeData));
 
-    console.log(JSON.stringify( subscribeData ));
+
+}
+
+function onVoucher() {
+    const urls = 'http://192.168.2.12:3000/v1/voucher'
+
+    var inputNama = document.getElementById("name").value;
+    var inputEmail = document.getElementById("email").value;
+    var voucherData = {
+        name: inputNama,
+        email: inputEmail
+    }
+
+    var dataVoucher = JSON.stringify(voucherData)
+    console.log(voucherData)
+
+    fetch(urls, {
+        method: 'POST',
+        // credentials: 'same-origin',
+        body: dataVoucher,
+        headers: {
+            // 'Accept': 'application/json, text/plain, */*',
+            "Content-Type": "application/json",
+            // "Access-Control-Request-Headers": "*",
+            // "Access-Control-Request-Method": "*"
+        },
+        // mode: "no-cors"
+    }).then(res => {
+
+        // get status
+        console.log(res)
+
+        // get body
+        let response = res.json()
+        response.then((r) => {
+            console.log(r)
+        })
+    }).catch(error => {
+        console.log(error)
+    })
+
+    console.log(JSON.stringify(voucherData));
+
 }

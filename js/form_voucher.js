@@ -13,9 +13,8 @@ console.log(getQueryStringValue("id"));
 function render(users) {
     console.log(users)
     for (let i = 0; i < users.length; i++) {
-        console.log(users[i]._id)
+        // console.log(users[i]._id)
         if (users[i]._id == getQueryStringValue("id")) {
-
 
             document.getElementById('receiver').innerHTML =
                 "<p class='receiver m-0'>" + users[i].name + "</p>"

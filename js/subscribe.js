@@ -73,10 +73,12 @@ function onVoucher() {
     const urls = 'http://192.168.2.12:3000/v1/voucher'
 
     var inputNama = document.getElementById("name").value;
-    var inputEmail = document.getElementById("email").value;
+    var inputReceiver = document.getElementById("email").value;
+    var inputAmout = '0';
     var voucherData = {
         name: inputNama,
-        email: inputEmail
+        receiver: inputReceiver,
+        amount: inputAmout
     }
 
     var dataVoucher = JSON.stringify(voucherData)

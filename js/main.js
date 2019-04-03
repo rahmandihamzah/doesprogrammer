@@ -6,6 +6,7 @@ fetch("http://192.168.2.12:3000/v1/users").then(res => {
     response.then(data => {
         console.log(data)
         render(data.users)
+        editVoucher(data.users)
         // condition(data.users)
     })
 }).catch(error => {
@@ -76,7 +77,7 @@ fetch("http://192.168.2.12:3000/v1/vouchers").then(res => {
     response.then(data => {
         console.log(data)
         tampil(data.vouchers)
-        // editVoucher(data.vouchers)
+        editVoucher(data.vouchers)
     })
 }).catch(error => {
     console.log(error)
@@ -122,13 +123,16 @@ function deleteVoucher(id) {
         })
 }
 
-// function editVoucher(vouchers) {
-//     for (z = 0; z < vouchers.length; z++) {
-//         console.log(umail)
+function editVoucher(users, vouchers) {
+    for (k = 0; k < users.length; k++) {
+        console.log(users[k])
+    }
 
-//         if (users[i].email === vouchers[z].receiver) {
-//             console.log(vouchers[z].receiver)
-//             window.location.href = './form_foucher.html';
-//         }
-//     }
-// }
+    for (z = 0; z < vouchers.length; z++) {
+        console.log(vouchers[z])
+        // if (users[k].email === vouchers[z].receiver) {
+        //     console.log(vouchers[z].receiver)
+        //     window.location.href = './form_foucher.html';
+        // }
+    }
+}

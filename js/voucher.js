@@ -1,9 +1,9 @@
 // GET REQUEST (DATA VOUCHER)
 fetch("http://192.168.2.12:3000/v1/vouchers").then(res => {
     var response = res.json()
-    response.then(vouchers => {
-        console.log(vouchers)
-        render(vouchers)
+    response.then(data => {
+        console.log(data)
+        render(data.vouchers)
     })
 }).catch(error => {
     console.log(error)
@@ -20,10 +20,13 @@ function render(vouchers) {
                 "<p class='receiver m-0'>" + vouchers[0].name + "</p>"
 
             document.getElementById('amount').innerHTML =
-                "<p class='amount p-0'>" + vouchers[0].amount + "</p>"
+                "<p class='amount p-0'>" + "Rp" + vouchers[0].amount + ",-" + "</p>"
 
             document.getElementById('voucher-code').innerHTML =
                 "<p class='mb-0 p-1'>" + vouchers[0].code + "</p>"
+
+            document.getElementById('expired').innerHTML =
+                "<p class='mb-0 p-0'>" + vouchers[i].expired + "</p>"
         }
     }
 }

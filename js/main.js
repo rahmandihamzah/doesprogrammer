@@ -6,7 +6,7 @@ fetch("http://192.168.2.12:3000/v1/users").then(res => {
     response.then(data => {
         console.log(data)
         render(data.users)
-        editVoucher(data.users)
+        // editVoucher(data.users)
         // condition(data.users)
     })
 }).catch(error => {
@@ -57,11 +57,17 @@ function deleteUser(id) {
     // Eksekusi fungsi fetch (kirim request ke backend, methodnya DELETE)
     // Parameter pertama URL API + id, parameter kedua options.
     fetch("http://192.168.2.12:3000/v1/users/" + id, {
-            method: 'DELETE'
+            method: 'DELETE',
         })
 
         // Handle fetch sukses
         .then(res => {
+            for (var i = 0; i < voucerData.length; i++) {
+                if (id == voucerData[i]._id) {
+                    // deleteVoucher()
+                    console.log(voucerData[i]._id)
+                }
+            }
             console.log(res)
         })
 
@@ -71,13 +77,16 @@ function deleteUser(id) {
         })
 }
 
+
+var voucerData = []
 fetch("http://192.168.2.12:3000/v1/vouchers").then(res => {
     console.log(res)
     var response = res.json()
     response.then(data => {
         console.log(data)
+        voucerData = data.vouchers
         tampil(data.vouchers)
-        editVoucher(data.vouchers)
+        // editVoucher(data.vouchers)
     })
 }).catch(error => {
     console.log(error)
@@ -123,16 +132,12 @@ function deleteVoucher(id) {
         })
 }
 
-function editVoucher(users, vouchers) {
-    for (k = 0; k < users.length; k++) {
-        console.log(users[k])
-    }
+function editVoucher(users) {
 
-    for (z = 0; z < vouchers.length; z++) {
-        console.log(vouchers[z])
-        // if (users[k].email === vouchers[z].receiver) {
-        //     console.log(vouchers[z].receiver)
-        //     window.location.href = './form_foucher.html';
-        // }
+    for (var i = 0; i < voucerData.length; i++) {
+        if (users == voucerData[i].receiver) {
+            var id = voucerData[i]._id
+            window.open('./form_voucher.html?id=' + id, '_blank')
+        }
     }
 }

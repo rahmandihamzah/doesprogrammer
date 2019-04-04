@@ -129,6 +129,8 @@ body {
     width: 80%;
     margin-left: 50%;
     transform: translate(-50%);
+    display: flex;
+    justify-content: center;
 }
 
 .btn-send {

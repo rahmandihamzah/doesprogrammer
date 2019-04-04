@@ -11,7 +11,7 @@ fetch("http://192.168.2.12:3000/v1/vouchers").then(res => {
 
 console.log(getQueryStringValue("id"));
 
-var dataVoucher = []
+var dataVoucher = {}
 
 function render(vouchers) {
     for (let i = 0; i < vouchers.length; i++) {
@@ -42,21 +42,26 @@ function getQueryStringValue(key) {
 function sendVoucher(id) {
     console.log(id);
 
-    var voucherAmount = document.getElementById('amount').value;
+    var voucherAmount = parseInt(document.getElementById('amount').value);
+    dataVoucher.amount = voucherAmount;
+
+    console.log(dataVoucher)
 
     fetch("http://192.168.2.12:3000/v1/voucher/" + id, {
+            method: 'PUT',
             headers: {
                 "Content-Type": "application/json; charset=utf-8"
             },
-            method: 'PUT',
-            body: JSON.stringify({
-                dataVoucher,
-                voucherAmount,
-            })
+            body: JSON.stringify(dataVoucher)
         })
         .then(res => {
-            console.log(dataVoucher)
-            console.log(voucherAmount)
+            console.log(res)
+            return res.json()
+            // console.log(dataVoucher)
+            // console.log(voucherAmount)
+        })
+        .then((res) => {
+            console.log(res)
         })
         .catch(error => {
             console.log(error)

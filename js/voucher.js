@@ -17,13 +17,13 @@ function render(vouchers) {
         if (vouchers[i]._id == getQueryStringValue("id")) {
 
             document.getElementById('receivers').innerHTML =
-                "<p class='receiver m-0'>" + vouchers[0].name + "</p>"
+                "<p class='receiver m-0'>" + vouchers[i].name + "</p>"
 
             document.getElementById('amount').innerHTML =
-                "<p class='amount p-0'>" + "Rp" + vouchers[0].amount + ",-" + "</p>"
+                "<p class='amount p-0'>" + "Rp " + vouchers[i].amount + ",-" + "</p>"
 
             document.getElementById('voucher-code').innerHTML =
-                "<p class='mb-0 p-1'>" + vouchers[0].code + "</p>"
+                "<p class='mb-0 p-1'>" + vouchers[i].code + "</p>"
 
             document.getElementById('expired').innerHTML =
                 "<p class='mb-0 p-0'>" + vouchers[i].expired + "</p>"
